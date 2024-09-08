@@ -12,9 +12,10 @@ if ($conn->connect_error) {
 
 $name = $_POST['name'];
 $email = $_POST['email'];
+$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 $age = $_POST['age'];
 $gender = $_POST['gender'];
-$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
 
 $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
 
