@@ -2,7 +2,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "user_registration";
+$dbname = "register";
 
 $conn = new mysqli($server, $user, $pass, $dbname);
 
@@ -16,8 +16,7 @@ $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 $age = $_POST['age'];
 $gender = $_POST['gender'];
 
-
-$sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+$sql = "INSERT INTO users (name, email, password, age, gender) VALUES ('$name', '$email', '$password', '$age', '$gender')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Registration successful!";
